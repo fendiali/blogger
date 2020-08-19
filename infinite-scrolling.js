@@ -10,10 +10,6 @@ var doc = $(document);
 // Took from jQuery to avoid permission denied error in IE.
 var rscript = /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi;
 
-function loadDisqusScript(domain) {
-  $.getScript('http://' + domain + '.disqus.com/blogger_index.js');
-}
-
 function loadMore() {
   if (loading) {
     return;
@@ -32,7 +28,7 @@ function loadMore() {
   }).done(function(html) {
     var newDom = $('<div></div>').append(html.replace(rscript, ''));
     var newLink = newDom.find('a.blog-pager-older-link');
-
+    var media_loaded=function(a){a.className+=" shown",a.classList.remove("blur-up")};deferimg("img.lazyload",80,"lazied",media_loaded); 
     var newPosts = newDom.find(postContainerSelector).children();
     $(postContainerSelector).append(newPosts);
 
@@ -45,19 +41,6 @@ function loadMore() {
     if (window.gapi && window.gapi.plusone && window.gapi.plusone.go) {
       window.gapi.plusone.go();
     }
-    // Render Disqus comments.
-    if (window.disqus_shortname) {
-      loadDisqusScript(window.disqus_shortname);
-    }
-    // Render Facebook buttons.
-    if (window.FB && window.FB.XFBML && window.FB.XFBML.parse) {
-      window.FB.XFBML.parse();
-    }
-    // Render Twitter widgets.
-    if (window.twttr && window.twttr.widgets && window.twttr.widgets.load) {
-      window.twttr.widgets.load();
-    }
-
     if (newLink) {
       olderPostsLink = newLink.attr('href');
     } else {
