@@ -1,20 +1,8 @@
-/*! suppersuggest.js 1.0
- *
- * Written by John Thomas @hashtagJohnT
- * Copyright (c) 2015 John Thomas
- * Available under the MIT license
- */
-  
-  // Global varaibles are "EVIL", so this is a way to get around it.
   var SuggestGlobal = (function() {
     var gKeyword = "";
     var callbackNum = 0;
     var gResults = new Array();
 
-    // // Variables used to store user settings.
-    // var inputMapping = {};
-
-    // This is used to convert user input text to html safe text for classes and id's.
     function makeSafeForCSS(name) {
       return name.replace(/[^a-z0-9]/g, function(s) {
           var c = s.charCodeAt(0);
@@ -118,18 +106,12 @@
 
     function showGResults() {
       // Process results.
-      $('#ss-tag-gen-btn').prop('disabled', false);
+      $('#fen-suggest-btn').prop('disabled', false);
 
-      $('.keyword span').removeClass('progress-bar');
-      // $('#input').val('');
-      document.getElementById('ss-results-msg').innerHTML = "<strong>" + gResults.length.toString() + " keywords found for keyword '" + gKeyword + "'</strong>";
-
-
-      // //Resize the div to hold all of the results.
-      // resizeBody('suggestor', 'auto');
+      document.getElementById('fen-results-msg').innerHTML = "<strong>" + gResults.length.toString() + " keywords found for keyword '" + gKeyword + "'</strong>";
 
       //Show the results in the DOM (one per line).
-      document.getElementById('ss-results-body').innerHTML = gResults.join("<br>");
+      document.getElementById('fen-results-body').innerHTML = gResults.join("<br>");
       
       resetSuggestor();
     }
@@ -207,25 +189,14 @@
     // Clear user input and previous results
     $('#input').val('');
     //Show the results in the DOM (one per line).
-    document.getElementById('ss-results-body').innerHTML = "";
+    document.getElementById('fen-results-body').innerHTML = "";
 
     // Disable button to keep user from submitting twice.
-    $('#ss-tag-gen-btn').prop('disabled', true);
+    $('#fen-suggest-btn').prop('disabled', true);
 
     // Clean keyword text to be used in HTML.
     // var keyword_html = KeywordGlobal.clean_keyword(keyword_lower);
     var htmlInput = SuggestGlobal.htmlSanitize(inputToSend);
-
-    // Create keyword bubble.
-    var newKeyword = '<div class="keyword progress progress-striped active" ><span id="' + htmlInput +'" type="text" class="form-control progress-bar" style="border-radius: 20px; width: auto; height: auto;">' + inputToSend + '</span></div>';
-
-    // <i class="glyphicon glyphicon-remove keywordRemoveIcon"></i>
-
-    // // Clear keyword input value.
-    // $('#input').val('');
-
-    // Add keyword bubble to container.
-    $('#keywordContainer').append(newKeyword);
 
     //Set the global keyword variable
     SuggestGlobal.setKeywordVariable(inputToSend);
