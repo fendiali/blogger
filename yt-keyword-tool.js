@@ -108,7 +108,7 @@
       // Process results.
       $('#fen-suggest-btn').prop('disabled', false);
 
-      document.getElementById('fen-results-msg').innerHTML = "<strong>" + gResults.length.toString() + " keywords found for keyword '" + gKeyword + "'</strong>";
+      document.getElementById('fen-results-msg').innerHTML = "<strong>" + gResults.length.toString() + " keyword ideas ditemukan untuk kata kunci '" + gKeyword + "'</strong>";
 
       //Show the results in the DOM (one per line).
       document.getElementById('fen-results-body').innerHTML = gResults.join("<br>");
