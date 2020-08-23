@@ -63,7 +63,7 @@
       script = document.createElement('script');
       script.type = 'text/javascript';
       script.id = 'script_' + cKeyword;
-      script.src = 'http://suggestqueries.google.com/complete/search?client=youtube&jsonp=SuggestGlobal.suggestCallback&q=' + cKeyword + '&hl=' + lang;
+      script.src = 'http://suggestqueries.google.com/complete/search?client=youtube&ds=yt&jsonp=SuggestGlobal.suggestCallback&q=' + cKeyword + '&hl=' + lang;
       
       //Append the script to the header on the HTML
       document.getElementsByTagName('head')[0].appendChild(script);
