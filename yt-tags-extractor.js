@@ -10,14 +10,14 @@ function fenTags() {
 
 			html = '';
 
-			var cenel = "<b>Channel:</b> " + data.items[0].snippet.channelTitle + "<br/><b>Judul:</b> " + data.items[0].snippet.title;
+			var cenel = "<a class='fen-suggest-btn' href='https://www.fendiali.net/p/yt-tags-extractor.html'>Find again</a><b>Channel:</b> " + data.items[0].snippet.channelTitle + "<br/><b>Title:</b> " + data.items[0].snippet.title;
 
 			$(".channel").append(cenel);
 			
 			html += "<h2>Tags</h2> <ul>";
 
 			$.each(data.items[0].snippet.tags, function (index, fenItems) {
-				html += "<li class='tags'>" + fenItems + "</li>";
+				html += fenItems + ", ";
 
 			});
 			html += "</ul>";
