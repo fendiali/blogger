@@ -10,7 +10,7 @@ function fenTags() {
 
 			html = '';
 
-			var cenel = "<a class='fen-suggest-btn' href='https://www.fendiali.net/p/yt-tags-extractor.html'>Find again</a><b>Channel:</b> " + data.items[0].snippet.channelTitle + "<br/><b>Title:</b> " + data.items[0].snippet.title;
+			var cenel = "<b>Channel:</b> " + data.items[0].snippet.channelTitle + "<br/><b>Title:</b> " + data.items[0].snippet.title;
 
 			$(".channel").append(cenel);
 			
@@ -23,6 +23,7 @@ function fenTags() {
 			});
 			
 			$("#fen-results-tags").append(html);
+			var rld ="<a href='https://www.fendiali.net/p/yt-tags-extractor.html' style='font-size:18px;font-weight:bold'>Reload this page to extract tags again!</a>";
 		
 			document.getElementById('form-tags').innerHTML = "";
 			
