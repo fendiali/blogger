@@ -14,15 +14,15 @@ function fenTags() {
 
 			$(".channel").append(cenel);
 			
-			html += "<h2>Tags</h2> <ul>";
+			var msg = "<h2>YouTube Tags</h2>";
+			$("#fen-results-msg").append(msg);
 
 			$.each(data.items[0].snippet.tags, function (index, fenItems) {
 				html += fenItems + ", ";
 
 			});
-			html += "</ul>";
 			
-			$("#fen-results-msg").append(html);
+			$("#fen-results-tags").append(html);
 		
 			document.getElementById('form-tags').innerHTML = "";
 			
