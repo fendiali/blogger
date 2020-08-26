@@ -24,7 +24,7 @@ function fenTags() {
 			
 			$("#fen-results-tags").append(html);
 			var rld ="<a href='https://www.fendiali.net/p/yt-tags-extractor.html' style='font-size:18px;font-weight:bold'>Reload this page to extract tags again!</a>";
-		
+			$("#reload-page").append(rld);
 			document.getElementById('form-tags').innerHTML = "";
 			
 		});
