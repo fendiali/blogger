@@ -2,7 +2,7 @@
     "name": "Fendi Ali",
     "short_name" : "fendiali",
     "icons": [{
-        "src": "",
+        "src": "https://raw.githubusercontent.com/fendiali/blogger/master/logo.png",
         "sizes": "512x512",
         "type": "image/png"
     }],
