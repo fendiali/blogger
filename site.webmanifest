@@ -1,0 +1,13 @@
+{
+    "name": "Fendi Ali",
+    "short_name" : "fendiali",
+    "icons": [{
+        "src": "",
+        "sizes": "512x512",
+        "type": "image/png"
+    }],
+    "start_url": "/",
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff",
+    "display": "standalone"
+}
