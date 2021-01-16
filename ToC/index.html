@@ -1,0 +1,135 @@
+<style>
+.tableOfContent {
+     padding:12px 15px;
+     margin:15px 0;
+     background-color:#f8f9fa;
+     border:1px solid #e4e9ef;
+     border-radius:4px;
+     line-height:1.5em;
+}
+.tableOfContent #tocContent {
+     margin:5px 0;
+}
+.tableOfContent #tocContent ul {
+     margin:0 0 10px;
+     padding:10px 0 0 17px;
+     position:relative;
+}
+.tableOfContent #tocContent ul ul{
+     padding-left:30px;
+}
+.tableOfContent #tocContent li {
+     position:relative;
+     margin:0 0 10px;
+}
+.tableOfContent ul ul:before {
+     content:'';
+     display:block;
+     width:1px;
+     height:calc(100% - 10px);
+     position:absolute;
+     left:-11px;
+     border-left:1px dashed rgba(0,0,0,.2);
+     top:0;
+}
+.tocContent ul.point2 li:before {
+     content:'';
+     display:block;
+     height:1px;
+     width:15px;
+     border-top:1px dashed rgba(0,0,0,.2);
+     position:absolute;
+     left:-38px;
+     top:10px;
+}
+.tableOfContent #tocContent a {
+     display:inline-table;
+     margin-left:5px;
+}
+.tableOfContent #tocContent .point2 a {
+     margin:0;
+}
+.tableOfContent #tocContent a:hover {
+     text-decoration:underline;
+}
+.tableOfContent .toctogglelabel {
+     display:block;
+     cursor:pointer;
+}
+.tableOfContent .toctogglespan i.icon.icon-dropdown {
+     float:right;
+     margin:0;
+}
+.tocContent ul.point2 li {
+     list-style-type:circle;
+     position:relative;
+}
+:not(:checked) > .toctoggle {
+     display:inline !important;
+     position:absolute;
+     opacity:0;
+}
+.tableOfContent .toctogglespan .toctogglelabel:before {
+     content:'Contents';
+     color:#757575;
+}
+.toctoggle:checked ~ #tocContent {
+     display:none;
+}
+label.toctogglelabel:after {
+     background-image:url("data:image/svg+xml,<svg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'><path d='M256 294.1L383 167c9.4-9.4 24.6-9.4 33.9 0s9.3 24.6 0 34L273 345c-9.1 9.1-23.7 9.3-33.1.7L95 201.1c-4.7-4.7-7-10.9-7-17s2.3-12.3 7-17c9.4-9.4 24.6-9.4 33.9 0l127.1 127z' fill='%2309204C'/></svg>");
+     content:'';
+     margin-top:3px;
+     width:16px;
+     height:16px;
+     background-size:cover;
+     background-repeat:no-repeat;
+     background-position:center center;
+     float:right;
+     transition:all .3s ease;
+     -webkit-transition:all .3s ease;
+}
+.toctoggle:not(:checked) + .toctogglespan .toctogglelabel:after {
+     -webkit-transform:rotate(180deg);
+     transform:rotate(180deg);
+}
+.tocContent ul.point2 {
+     padding-top:10px;
+}
+:target::before {
+     content:"";
+     display:block;
+     height:60px;
+     margin-top:-60px;
+     visibility:hidden;
+}
+
+</style>
+
+
+<div class='tableOfContent'>
+  <input aria-label='Contents' class='toctoggle' id='toctoggle' role='button' type='checkbox' checked/>
+  <span class='toctogglespan'><label class='toctogglelabel' for='toctoggle'/></span>
+  <div id='tocContent'/>
+</div>
+   </div>
+           <div id='PXt'>
+        <h2>Red Fruits</h2>
+        <h3>Apple</h3>
+        <h3>Raspberry</h3>
+        <h2>Orange Fruits</h2>
+        <h3>Orange</h3>
+        <h3>Tangerine</h3>
+     
+        <h2>Vegetables Which Are Actually Fruits</h2>
+        <h3>Tomato</h3>
+        <h3>Eggplant</h3>
+    </div>
+
+
+<script>
+	window.onload = function () {
+       var a=1,b=0,c="";
+       document.getElementById("PXt").innerHTML=document.getElementById("PXt").innerHTML.replace(/<h([\d]).*?>(\n.*?|.*?)<\/h([\d]).*?>/gi,function(d,e,f,g){return e!=g?d:(e>a?c+=new Array(e-a+1).join("<ul class='point"+a+"'>"):e<a&&(c+=new Array(a-e+1).join("</ul></li>")),b+=1,c+='<li><a href="#'+f.replace(/[^a-z0-9]/gi," ").trim().replace(/\s/g,"_")+'" title="'+f+'">'+f+"</a>",a=parseInt(e),"<h"+e+" id='"+f.replace(/[^a-z0-9]/gi," ").trim().replace(/\s/g,"_")+"'>"+f+"</h"+g+">")}),a&&(c+=new Array(a+1).join("</ul>")),document.getElementById("tocContent").innerHTML+=c
+};
+</script>
